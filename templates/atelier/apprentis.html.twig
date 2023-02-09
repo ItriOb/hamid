@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ateliers Inscrits{% endblock %}
+
+{% block body %}
+
+    <div class="container d-flex align-items-center justify-content-center">
+        <div>
+            <br>
+            <h1>{{ atelier }}</h1>
+            <br>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Login</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for apprenti in apprentis %}
+                    <tr>
+                        <td>{{ apprenti.login }}</td>
+                        <td>
+                            {{ apprenti.nom }}
+                        </td>
+                        <td>
+                            {{ apprenti.prenom }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">Aucun apprenti dans cet atelier</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <br>
+
+
+
+{% endblock %}

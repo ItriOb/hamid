@@ -1,0 +1,9 @@
+2ae9f5,172.19.0.1,GET,http://localhost:5000/atelier/,1675901491,,200
+1b7a1c,172.19.0.1,GET,http://localhost:5000/atelier/98/apprentis1,1675901495,68f73f,500
+68f73f,172.19.0.1,GET,http://localhost:5000/atelier/98/apprentis1,1675901495,,500
+e81f05,172.19.0.1,GET,http://localhost:5000/atelier/,1675901545,,200
+ffb5d1,172.19.0.1,GET,http://localhost:5000/atelier/,1675901547,,200
+bddd3f,172.19.0.1,GET,http://localhost:5000/atelier/itri,1675901551,048b21,404
+048b21,172.19.0.1,GET,http://localhost:5000/atelier/itri,1675901551,,404
+a96bc0,172.19.0.1,GET,http://localhost:5000/atelier,1675901579,,301
+8c0c53,172.19.0.1,GET,http://localhost:5000/atelier/,1675901605,,200

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscriptions{% endblock %}
+
+{% block body %}
+
+    {% if apprenti|length > 0 %}
+
+        <div class="alert alert-success">{{apprenti}}</div>
+    {% endif %}
+    <div class="container d-flex align-items-center justify-content-center">
+        <div>
+            <br>
+            <h1>Mes inscriptions</h1>
+            <br>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Créateur</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for atelier in mesAteliers %}
+                    <tr>
+
+                        <td>{{ atelier.Nom }}</td>
+                        <td>
+                            {{ atelier.description| u.truncate(100,' ...',false) |raw}}
+                        </td>
+                        <td>
+                            {{ atelier.nomInstructeur.nom }}
+                        </td>
+                        <td>
+                                <a href="{{ path('app_atelier_desinscrire', {'id': atelier.id}) }}" class="btn btn-danger" role="button" aria-pressed="true">Desinscrire</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">Vous n'êtes inscrit dans aucun atelier</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+    <br>
+
+
+
+{% endblock %}
+
+<h1>Bonjour</h1>

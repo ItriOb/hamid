@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Atelier index{% endblock %}
+
+{% block body %}
+
+    {% if apprenti|length > 0 %}
+
+        <div class="alert alert-success">{{apprenti}}</div>
+    {% endif %}
+<div class="container d-flex align-items-center justify-content-center">
+    <div>
+        <br>
+            <h1>Ateliers</h1>
+            <br>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Créateur</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for atelier in ateliers %}
+            <tr>
+
+                <td><a href="{{ path('app_atelier_show', {'id': atelier.id}) }}">{{ atelier.Nom }}</a></td>
+                <td>
+                    {{ atelier.description| u.truncate(100,' ...',false) |raw}}
+                </td>
+                <td>
+                    {{ atelier.nomInstructeur.nom }}
+                </td>
+                <td>
+                    {{ atelier.apprentisInscrits|length }}
+                </td>
+                <td>
+
+
+                    <a href="{{ path('app_atelier_edit', {'id': atelier.id}) }}" class="btn btn-info" role="button" aria-pressed="true">Modifier</a>
+
+
+
+                </td>
+                <td>
+                    {% if   app.user.id in atelier.apprentisInscrits %}
+                    <a href="{{ path('app_atelier_desinscrire', {'id': atelier.id}) }}" class="btn btn-danger" role="button" aria-pressed="true">Desinscrire</a>
+                    {% else %}
+                        <a href="{{ path('app_atelier_inscrire', {'id': atelier.id}) }}" class="btn btn-success" role="button" aria-pressed="true">Inscrire</a>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ path('app_atelier_apprentis', {'id': atelier.id}) }}" class="btn btn-success" role="button" aria-pressed="true">Apprentis</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    </div>
+
+        </div>
+    <br>
+
+
+
+{% endblock %}

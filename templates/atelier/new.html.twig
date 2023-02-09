@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Atelier{% endblock %}
+
+
+{% block body %}
+    {% if error|length > 0 %}
+
+        <div class="alert alert-danger">{{error}}</div>
+    {% endif %}
+    <div class="container">
+        <div>
+            <br>
+            <br>
+            <h3>Créer Atelier</h3>
+            <br>
+
+            {{ include('atelier/_form.html.twig') }}
+            <br>
+            <a href="{{ path('app_atelier_index') }}" class="btn btn-secondary" role="button" aria-pressed="true">Retour</a>
+
+        </div>
+    </div>
+{% endblock %}
